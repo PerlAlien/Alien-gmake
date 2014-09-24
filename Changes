@@ -2,5 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.02      2014-09-24 13:33:45 -0400
+  - fixed dependency
+
 0.01      2014-09-24 13:29:15 -0400
   - initial version
