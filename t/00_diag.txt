@@ -1,5 +1,5 @@
 Alien::Base
-Configure::Tiny
+Capture::Tiny
 Env
 File::Spec
 File::chdir
