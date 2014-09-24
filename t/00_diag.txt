@@ -1,5 +1,7 @@
 Alien::Base
+Configure::Tiny
 Env
 File::Spec
+File::chdir
 Module::Build
 Test::More
