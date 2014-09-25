@@ -4,8 +4,6 @@ use strict;
 use warnings;
 use base qw( Alien::Base::ModuleBuild );
 use Capture::Tiny qw( capture );
-use Alien::Base::PkgConfig;
-use File::Spec;
 use Config;
 use File::Temp qw( tempdir );
 use File::chdir;
@@ -54,31 +52,9 @@ sub alien_check_installed_version
   return;
 }
 
-sub alien_load_pkgconfig
+sub alien_check_built_version
 {
-  my($self) = @_;
-
-  my $version = do {
-    local $CWD = $self->config_data('working_directory');
-    $CWD[-1] =~ /^make-(.*)$/ ? $1 : 'unknown';
-  };
-
-  $self->config_data( gmake_called => 'gmake' );  
-
-  my $pc_name = File::Spec->catfile(qw( inc pkgconfig gmake.pc ));
-  open my $fh, '>', $pc_name;
-  print $fh <<EOF;
-Name: gmake
-Description: GNU Make
-Version: $version
-Libs: 
-Cflags: 
-EOF
-  close $fh;
-  
-  my %pc;
-  $pc{gmake} = Alien::Base::PkgConfig->new($pc_name);
-  \%pc;
+  $CWD[-1] =~ /^make-(.*)$/ ? $1 : 'unknown';
 }
 
 1;

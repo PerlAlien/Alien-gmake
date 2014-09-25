@@ -1,5 +1,0 @@
-Name: gmake
-Description: GNU Make
-Version: x.y.z
-Libs: 
-Cflags: 
