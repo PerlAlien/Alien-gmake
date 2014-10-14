@@ -54,6 +54,7 @@ sub alien_check_installed_version
 
 sub alien_check_built_version
 {
+  shift->config_data( gmake_called => 'gmake' );
   $CWD[-1] =~ /^make-(.*)$/ ? $1 : 'unknown';
 }
 

@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - fix regression in source code build 0.04
 
 0.04      2014-10-14 07:33:08 -0400
   - use Alien::Base 0.006
