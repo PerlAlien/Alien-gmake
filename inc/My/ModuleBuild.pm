@@ -19,7 +19,7 @@ sub new
   ];
   $args{alien_install_commands} = [
     "make install",
-  ],
+  ];
   $args{alien_repository} = {
     protocol => 'http',
     host     => 'ftp.gnu.org',
