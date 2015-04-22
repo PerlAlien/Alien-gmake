@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - use alien_stage_install
 
 0.06      2015-01-23 08:02:18 -0500
   - fix syntax error
