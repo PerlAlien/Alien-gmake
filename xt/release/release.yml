@@ -5,12 +5,14 @@ pod_spelling_system:
   # (regardless of what spell check thinks)
   stopwords:
     - exe
+    - gmake
 
 pod_coverage:
   skip: 0
   # format is "Class#method" or "Class", regex allowed
   # for either Class or method.
-  private: []
+  private:
+    - #alien_helper
 
 unused_vars:
   skip: 0

@@ -55,4 +55,26 @@ sub exe
   $class->config('gmake_called');
 }
 
+=head1 HELPERS
+
+=head2 gmake
+
+Returns either make or gmake depending on how GNU make is called on your 
+system.
+
+=cut
+
+sub alien_helper
+{
+  return {
+    gmake => sub {
+      # return the executable name for GNU make,
+      # usually either make or gmake depending on
+      # the platform and environment
+      my($class) = @_;
+      $class->exe;
+    },
+  }
+}
+
 1;
