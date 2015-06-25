@@ -29,6 +29,13 @@ environment when you don't.
 
 Return the "name" of GNU make.  Normally this is either `make` or `gmake`.
 
+# HELPERS
+
+## gmake
+
+Returns either make or gmake depending on how GNU make is called on your 
+system.
+
 # AUTHOR
 
 Graham Ollis <plicease@cpan.org>
