@@ -59,6 +59,8 @@ sub exe
 
 =head2 gmake
 
+ %{gmake}
+
 Returns either make or gmake depending on how GNU make is called on your 
 system.
 
