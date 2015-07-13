@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.10      2015-07-13 07:33:41 -0400
+  - Update meta to reflect ownership by Alien::Base team
+
 0.09      2015-07-13 07:31:37 -0400
   - Provide %{gmake} helper
   - Require Alien::Base 0.020
