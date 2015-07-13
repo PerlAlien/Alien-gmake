@@ -2,6 +2,10 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.09      2015-07-13 07:31:37 -0400
+  - Provide %{gmake} helper
+  - Require Alien::Base 0.020
+
 0.08      2015-04-22 11:40:06 -0400
   - Require Alien::Base 0.016 (needed for alien_stage_install)
 

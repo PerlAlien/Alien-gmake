@@ -33,6 +33,8 @@ Return the "name" of GNU make.  Normally this is either `make` or `gmake`.
 
 ## gmake
 
+    %{gmake}
+
 Returns either make or gmake depending on how GNU make is called on your 
 system.
 
