@@ -73,8 +73,7 @@ sub alien_helper
       # return the executable name for GNU make,
       # usually either make or gmake depending on
       # the platform and environment
-      my($class) = @_;
-      $class->exe;
+      Alien::gmake->exe;
     },
   }
 }
