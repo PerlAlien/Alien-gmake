@@ -1,4 +1,5 @@
 Alien::Base
+Alien::Base::ModuleBuild
 Capture::Tiny
 File::chdir
 Module::Build
