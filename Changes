@@ -2,6 +2,10 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.11      2015-09-14 05:21:12 -0400
+  - Fix for helper, which was incorrectly expecting to be
+    called as a class method (eserte++ for reporting GH#1).
+
 0.10      2015-07-13 07:33:41 -0400
   - Update meta to reflect ownership by Alien::Base team
 
