@@ -8,7 +8,7 @@ pod_spelling_system:
     - gmake
 
 pod_coverage:
-  skip: 1
+  skip: 0
   # format is "Class#method" or "Class", regex allowed
   # for either Class or method.
   private:
