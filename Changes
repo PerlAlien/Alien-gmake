@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Use Alien::Base::ModuleBuild as configure requires
+    instead of Alien::Base
 
 0.11      2015-09-14 05:21:12 -0400
   - Fix for helper, which was incorrectly expecting to be
