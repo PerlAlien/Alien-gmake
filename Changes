@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Prune experimental t/run.t test
 
 0.12      2016-01-28 21:21:10 -0500
   - Use Alien::Base::ModuleBuild as configure requires

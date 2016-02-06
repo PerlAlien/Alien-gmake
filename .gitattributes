@@ -1,1 +1,2 @@
 *.pm linguist-language=Perl
+*.h linguist-language=C
