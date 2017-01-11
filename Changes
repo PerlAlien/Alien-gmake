@@ -1,7 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
-  - On Windows (MSWin32), probe for the Gnu Make thta comes from 
+  - On Windows (MSWin32), probe for the Gnu Make that comes from
     Alien::MSYS
 
 0.14      2016-02-05 22:57:59 -0500
