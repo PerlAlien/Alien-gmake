@@ -18,7 +18,12 @@ $modules{$_} = $_ for qw(
   Test::More
 );
 
-
+$post_diag = sub {
+  use Alien::gmake;
+  diag "exe          = @{[ Alien::gmake->exe               ]}";
+  diag "version      = @{[ Alien::gmake->config('version') ]}";
+  diag "install_type = @{[ Alien::gmake->install_type      ]}";
+};
 
 my @modules = sort keys %modules;
 
