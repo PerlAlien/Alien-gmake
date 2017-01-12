@@ -19,10 +19,12 @@ sub alien_check_installed_version
   {
     if($self->invoked_action ne 'Build_PL')
     {
-      require Alien::MSYS;
-      my $path = File::Spec->catfile(Alien::MSYS::msys_path(), 'make');
-      $path =~ s/\\/\//g;
-      unshift @other, $path;
+      if(eval { require Alien::MSYS })
+      {
+        my $path = File::Spec->catfile(Alien::MSYS::msys_path(), 'make');
+        $path =~ s/\\/\//g;
+        unshift @other, $path;
+      }
     }
   }
   
