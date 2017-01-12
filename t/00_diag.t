@@ -23,6 +23,7 @@ $post_diag = sub {
   diag "exe          = @{[ Alien::gmake->exe               ]}";
   diag "version      = @{[ Alien::gmake->config('version') ]}";
   diag "install_type = @{[ Alien::gmake->install_type      ]}";
+  diag "msys?        = @{[ eval { require Alien::MSYS } ? 'installed' : 'unavailable' ]}";
 };
 
 my @modules = sort keys %modules;
