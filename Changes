@@ -2,6 +2,9 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.15_01   2017-01-12 09:48:32 -0500
+  - Fix build failure when using MSYS sans Alien::MSYS
+
 0.15      2017-01-11 08:50:02 -0500
   - On Windows (MSWin32), probe for the Gnu Make that comes from
     Alien::MSYS
