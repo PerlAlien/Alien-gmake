@@ -21,6 +21,12 @@ it into a directory not normally in your path so that it can be used when you
 `use Alien::gmake`.  This way you can use it when you need it, but not muck up your
 environment when you don't.
 
+If possible, it is better to fix the package so that it doesn't require GNU make
+extensions, making it more portable.  Unfortunately, sometimes this isn't an option.
+
+This class is a subclass of [Alien::Base](https://metacpan.org/pod/Alien::Base), so all of the methods documented there
+should work with this class.
+
 # METHODS
 
 ## exe
