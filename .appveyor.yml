@@ -38,3 +38,7 @@ environment:
   matrix:
     - ALIEN_INSTALL_TYPE: system
     - ALIEN_INSTALL_TYPE: share
+
+matrix:
+  allow_failures:
+    - ALIEN_INSTALL_TYPE: share
