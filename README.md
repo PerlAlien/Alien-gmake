@@ -27,7 +27,32 @@ environment when you don't.
 
     my $gmake = Alien::gmake->exe;
 
-Return the "name" of GNU make.  Normally this is either `make` or `gmake`.
+Return the "name" of GNU make.  Normally this is either `make` or `gmake`.  On
+Windows (and possibly other platforms), it _may_ be the full path to the GNU make
+executable.
+
+To be usable on all platforms you will have to first add directories returned
+from `bin_dir` to your `PATH`, for example:
+
+    use Alien::gmake;
+    use Env qw( @PATH );
+    
+    unshift @PATH, Alien::gmake->bin_dir;
+    system "@{[ Alien::gmake->exe ]}";
+    system "@{[ Alien::gmake->exe ]} install";
+
+## bin\_dir
+
+    my @dir = Alien::gmake->bin_dir;
+
+Returns the list of directories that should be added to `PATH` in order for the
+shell to find GNU make.  If GNU make is already in the `PATH`, this will return
+the empty list.  For example:
+
+    use Alien::gmake;
+    use Env qw( @PATH );
+    
+    unshift @PATH, Alien::gmake->bin_dir;
 
 # HELPERS
 
