@@ -12,6 +12,23 @@ Find or build GNU Make
     system $gmake, 'all';
     system $gmake, 'install';
 
+Or with [Alien::Build::ModuleBuild](https://metacpan.org/pod/Alien::Build::ModuleBuild):
+
+    use Alien::Base::ModuleBuild;
+    Alien::Base::ModuleBuild->new(
+      ...
+      alien_bin_requires => {
+        'Alien::gmake' => '0.09',
+      },
+      alien_build_commands => {
+        "%{gmake}",
+      },
+      alien_install_commands => {
+        "%{gmake} install",
+      },
+      ...
+    )->create_build_script;
+
 # DESCRIPTION
 
 Some packages insist on using GNU Make.  Some platforms refuse to come with GNU Make.

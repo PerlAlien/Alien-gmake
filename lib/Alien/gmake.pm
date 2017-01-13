@@ -19,6 +19,23 @@ use File::Spec;
  system $gmake, 'all';
  system $gmake, 'install';
 
+Or with L<Alien::Build::ModuleBuild>:
+
+ use Alien::Base::ModuleBuild;
+ Alien::Base::ModuleBuild->new(
+   ...
+   alien_bin_requires => {
+     'Alien::gmake' => '0.09',
+   },
+   alien_build_commands => {
+     "%{gmake}",
+   },
+   alien_install_commands => {
+     "%{gmake} install",
+   },
+   ...
+ )->create_build_script;
+
 =head1 DESCRIPTION
 
 Some packages insist on using GNU Make.  Some platforms refuse to come with GNU Make.
