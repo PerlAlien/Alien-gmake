@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.17      2017-01-12 22:11:06 -0500
   - implicit modification of PATH is now deprecated
     (see https://metacpan.org/pod/Alien::gmake#CAVEATS for details)
 
