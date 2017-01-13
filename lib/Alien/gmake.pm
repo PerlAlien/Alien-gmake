@@ -11,9 +11,10 @@ use File::Spec;
 
 =head1 SYNOPSIS
 
- use Alien::gmake;
- # GNU Make should now be in your PATH if it wasn't already
+ use Alien::gmake ();
+ use Env qw( @PATH );
  
+ unshift @ENV, Alien::gmake->bin_dir;
  my $gmake = Alien::gmake->exe;
  system $gmake, 'all';
  system $gmake, 'install';
@@ -47,7 +48,7 @@ executable.
 To be usable on all platforms you will have to first add directories returned
 from C<bin_dir> to your C<PATH>, for example:
 
- use Alien::gmake;
+ use Alien::gmake ();
  use Env qw( @PATH );
  
  unshift @PATH, Alien::gmake->bin_dir;
@@ -62,7 +63,7 @@ Returns the list of directories that should be added to C<PATH> in order for the
 shell to find GNU make.  If GNU make is already in the C<PATH>, this will return
 the empty list.  For example:
 
- use Alien::gmake;
+ use Alien::gmake ();
  use Env qw( @PATH );
  
  unshift @PATH, Alien::gmake->bin_dir;
@@ -75,7 +76,9 @@ sub import
 {
   return if __PACKAGE__->install_type('system');
   return if $in_path;
-  unshift @PATH, File::Spec->catdir(__PACKAGE__->dist_dir, 'bin');
+  # TODO: this should probably be deprecated. :/
+  my $dir = File::Spec->catdir(__PACKAGE__->dist_dir, 'bin');
+  unshift @PATH, $dir;
   # only do it once.
   $in_path = 1;
 }
