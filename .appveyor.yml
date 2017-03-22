@@ -18,7 +18,7 @@ install:
   - cpanm -n Dist::Zilla
   - dzil authordeps --missing | cpanm -n
   - cpanm Dist::Zilla::Plugin::Git::Check
-  - dzil run "(perl Build.PL) && (type MYMETA.json)"
+  - dzil run "(perl Makefile.PL) && (type MYMETA.json)"
   - dzil run "(cpanm --installdeps .) && (type MYMETA.json)"
 
 build: off
