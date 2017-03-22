@@ -26,7 +26,7 @@ if($^O eq 'MSWin32')
           
           if($build->runtime_prop->{my_use_msys})
           {
-            $build->{command} = Path::Tiny->new(Alien::MSYS::msys_path())->child('make.exe')->stringify;
+            $build->runtime_prop->{command} = Path::Tiny->new(Alien::MSYS::msys_path())->child('make.exe')->stringify;
           }
           
           $orig->($build, @_);
