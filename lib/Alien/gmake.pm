@@ -105,7 +105,7 @@ sub import
 sub exe
 {
   my($class) = @_;
-  $class->config('gmake_called');
+  $class->runtime_prop->{command};
 }
 
 =head1 HELPERS

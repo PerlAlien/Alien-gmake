@@ -1,10 +1,6 @@
-use strict;
-use warnings;
-use Test::Stream -V1;
+use Test2::Bundle::Extended;
 use Test::Alien;
-use Alien::gmake;
-
-plan 4;
+use Alien::gmake ();
 
 alien_ok 'Alien::gmake';
 my $run = run_ok([Alien::gmake->exe, '--version'])
@@ -12,3 +8,4 @@ my $run = run_ok([Alien::gmake->exe, '--version'])
 
 $run->success ? $run->note : $run->diag;
   
+done_testing;

@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Migrate to Alien::Build and alienfile
 
 0.17      2017-01-12 22:11:06 -0500
   - implicit modification of PATH is now deprecated
