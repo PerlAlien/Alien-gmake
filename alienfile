@@ -6,6 +6,37 @@ plugin 'Probe::CommandLine' => (
   match   => qr/GNU Make/,
 ) for qw( gmake make );
 
+if($^O eq 'MSWin32')
+{
+  if(`gmake --version` !~ /GNU Make/ && `gmake --version` !~ /GNU Make/)
+  {
+    probe sub {
+      my($build) = @_;
+      $build->runtime_prop->{my_use_msys} = 1;
+      'system';
+    };
+
+    sys {
+      requires 'Alien::MSYS';
+      requires 'Path::Tiny';
+      meta->around_hook(
+        gather_system => sub {
+          my $orig = shift;
+          my $build = shift;
+          
+          if($build->runtime_prop->{my_use_msys})
+          {
+            $build->{command} = Path::Tiny->new(Alien::MSYS::msys_path())->child('make.exe')->stringify;
+          }
+          
+          $orig->($build, @_);
+        },
+      );
+    };
+  }
+}
+
+
 share {
 
   plugin 'Download' => (
@@ -39,5 +70,5 @@ gather sub {
   });
   
   my($version) = $stdout =~ /GNU Make ([0-9\.]+)/;
-  $build->runtime_prop->{version} = $version || 'unknown';
+  $build->runtime_prop->{version} = $version || 'unknown';  
 }
