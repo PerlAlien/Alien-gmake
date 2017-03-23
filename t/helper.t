@@ -1,9 +1,11 @@
 use strict;
 use warnings;
 use Test::More;
-use Alien::Base::ModuleBuild;
 
 BEGIN {
+  plan skip_all => 'Test requires Alien::Base::ModuleBuild'
+    unless eval q{ use Alien::Base::ModuleBuild; 1 };
+
   plan skip_all => 'Test requires Capture::Tiny'
     unless eval q{ use Capture::Tiny qw( capture ); 1 }
 }

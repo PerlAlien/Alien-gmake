@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Remove lingering dependency on Alien::Base::ModuleBuild
 
 0.18      2017-03-22 16:17:11 -0400
   - Migrate to Alien::Build and alienfile
