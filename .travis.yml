@@ -3,6 +3,8 @@ sudo: false
 
 install:
   - perlbrew list
+  - cpanm -n App::af
+  - af missing | cpanm
   - dzil authordeps --missing | cpanm -n
   - dzil listdeps --missing | cpanm -n
 
@@ -15,8 +17,11 @@ perl:
   - "5.24"
 
 env:
-  - ALIEN_FORCE=0
-  - ALIEN_FORCE=1
+  global:
+    - ALIEN_BASE_NO_ABMB=1
+  matrix:
+    - ALIEN_FORCE=0
+    - ALIEN_FORCE=1
 
 script:
   - dzil test -v
