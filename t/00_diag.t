@@ -16,8 +16,7 @@ $modules{$_} = $_ for qw(
   Capture::Tiny
   ExtUtils::MakeMaker
   File::chdir
-  IPC::Cmd
-  Test2::Suite
+  Test2::V0
   Test::Alien
   Test::More
 );
