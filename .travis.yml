@@ -3,7 +3,6 @@ sudo: false
 
 install:
   - perlbrew list
-  - ./maint/travis-install-alienbuild
   - cpanm -n App::af
   - af missing | cpanm
   - dzil authordeps --missing | cpanm -n
@@ -22,8 +21,8 @@ env:
   global:
     - ALIEN_BASE_NO_ABMB=1
   matrix:
-    - ALIEN_FORCE=0
-    - ALIEN_FORCE=1
+    - ALIEN_INSTALL_TYPE=system
+    - ALIEN_INSTALL_TYPE=share
 
 script:
   - dzil test -v
