@@ -87,21 +87,6 @@ the empty list.  For example:
 
 =cut
 
-my $in_path;
-
-sub import
-{
-  require Carp;
-  Carp::carp "Alien::gmake with implicit path modification is deprecated ( see https://metacpan.org/pod/Alien::gmake#CAVEATS )";
-  return if __PACKAGE__->install_type('system');
-  return if $in_path;
-  my $dir = File::Spec->catdir(__PACKAGE__->dist_dir, 'bin');
-  Carp::carp "adding $dir to PATH";
-  unshift @PATH, $dir;
-  # only do it once.
-  $in_path = 1;
-}
-
 sub exe
 {
   my($class) = @_;
@@ -132,25 +117,3 @@ sub alien_helper
 }
 
 1;
-
-=head1 CAVEATS
-
-This version of L<Alien::gmake> adds GNU make to your path, if it isn't
-already there when you use it, like this:
-
- use Alien::gmake;  # deprecated, issues a warning
-
-This was a design mistake, and now B<deprecated>.  When L<Alien::gmake> was
-originally written, it was one of the first Alien tool style modules on
-CPAN.  As such, the author and the L<Alien::Base> team hadn't yet come up
-with the best practices for this sort of module.  The author, and the
-L<Alien::Base> team feel that for consistency and for readability it is
-better use L<Alien::gmake> without the automatic import:
-
- use Alien::gmake ();
-
-and explicitly modify the C<PATH> yourself (examples are above in the 
-synopsis).  The old style will issue a warning.  The old behavior will be
-removed, but not before 31 January 2018.
-
-=cut

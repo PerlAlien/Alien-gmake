@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - implicit modification of PATH is now removed
+    (was deprecated in 0.17)
 
 0.20      2017-06-17 11:30:48 -0400
   - Improve probe on Microsoft Windows
