@@ -18,7 +18,6 @@ $modules{$_} = $_ for qw(
   File::chdir
   Test2::V0
   Test::Alien
-  Test::More
 );
 
 $post_diag = sub {
