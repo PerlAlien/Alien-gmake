@@ -11,6 +11,8 @@ use File::Spec;
 
 =head1 SYNOPSIS
 
+From your Perl script:
+
  use Alien::gmake ();
  use Env qw( @PATH );
  
@@ -19,7 +21,17 @@ use File::Spec;
  system $gmake, 'all';
  system $gmake, 'install';
 
-Or with L<Alien::Build::ModuleBuild>:
+Or L<alienfile>:
+
+ use alienfile;
+
+ share {
+   ...
+   requires 'Alien::gmake' => '0.09';
+   build [ '%{gmake}', '%{gmake} install' ];
+ };
+
+Or Build.PL with L<Alien::Build::ModuleBuild>:
 
  use Alien::Base::ModuleBuild;
  Alien::Base::ModuleBuild->new(
