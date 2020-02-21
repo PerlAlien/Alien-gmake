@@ -1,33 +1,37 @@
-# Alien::gmake [![Build Status](https://secure.travis-ci.org/Perl5-Alien/Alien-gmake.png)](http://travis-ci.org/Perl5-Alien/Alien-gmake) [![Build status](https://ci.appveyor.com/api/projects/status/2n8jg5pikac3g953/branch/master?svg=true)](https://ci.appveyor.com/project/Perl5-Alien/Alien-gmake/branch/master)
+# Alien::gmake [![Build Status](https://secure.travis-ci.org/Perl5-Alien/Alien-gmake.png)](http://travis-ci.org/Perl5-Alien/Alien-gmake) [![Build status](https://ci.appveyor.com/api/projects/status/2n8jg5pikac3g953/branch/master?svg=true)](https://ci.appveyor.com/project/plicease/Alien-gmake/branch/master)
 
 Find or build GNU Make
 
 # SYNOPSIS
 
-    use Alien::gmake ();
-    use Env qw( @PATH );
-    
-    unshift @ENV, Alien::gmake->bin_dir;
-    my $gmake = Alien::gmake->exe;
-    system $gmake, 'all';
-    system $gmake, 'install';
+```perl
+use Alien::gmake ();
+use Env qw( @PATH );
+
+unshift @ENV, Alien::gmake->bin_dir;
+my $gmake = Alien::gmake->exe;
+system $gmake, 'all';
+system $gmake, 'install';
+```
 
 Or with [Alien::Build::ModuleBuild](https://metacpan.org/pod/Alien::Build::ModuleBuild):
 
-    use Alien::Base::ModuleBuild;
-    Alien::Base::ModuleBuild->new(
-      ...
-      alien_bin_requires => {
-        'Alien::gmake' => '0.09',
-      },
-      alien_build_commands => {
-        "%{gmake}",
-      },
-      alien_install_commands => {
-        "%{gmake} install",
-      },
-      ...
-    )->create_build_script;
+```perl
+use Alien::Base::ModuleBuild;
+Alien::Base::ModuleBuild->new(
+  ...
+  alien_bin_requires => {
+    'Alien::gmake' => '0.09',
+  },
+  alien_build_commands => {
+    "%{gmake}",
+  },
+  alien_install_commands => {
+    "%{gmake} install",
+  },
+  ...
+)->create_build_script;
+```
 
 # DESCRIPTION
 
@@ -49,7 +53,9 @@ should work with this class.
 
 ## exe
 
-    my $gmake = Alien::gmake->exe;
+```perl
+my $gmake = Alien::gmake->exe;
+```
 
 Return the "name" of GNU make.  Normally this is either `make` or `gmake`.  On
 Windows (and possibly other platforms), it _may_ be the full path to the GNU make
@@ -58,31 +64,39 @@ executable.
 To be usable on all platforms you will have to first add directories returned
 from `bin_dir` to your `PATH`, for example:
 
-    use Alien::gmake ();
-    use Env qw( @PATH );
-    
-    unshift @PATH, Alien::gmake->bin_dir;
-    system "@{[ Alien::gmake->exe ]}";
-    system "@{[ Alien::gmake->exe ]} install";
+```perl
+use Alien::gmake ();
+use Env qw( @PATH );
+
+unshift @PATH, Alien::gmake->bin_dir;
+system "@{[ Alien::gmake->exe ]}";
+system "@{[ Alien::gmake->exe ]} install";
+```
 
 ## bin\_dir
 
-    my @dir = Alien::gmake->bin_dir;
+```perl
+my @dir = Alien::gmake->bin_dir;
+```
 
 Returns the list of directories that should be added to `PATH` in order for the
 shell to find GNU make.  If GNU make is already in the `PATH`, this will return
 the empty list.  For example:
 
-    use Alien::gmake ();
-    use Env qw( @PATH );
-    
-    unshift @PATH, Alien::gmake->bin_dir;
+```perl
+use Alien::gmake ();
+use Env qw( @PATH );
+
+unshift @PATH, Alien::gmake->bin_dir;
+```
 
 # HELPERS
 
 ## gmake
 
-    %{gmake}
+```
+%{gmake}
+```
 
 Returns either make or gmake depending on how GNU make is called on your 
 system.
