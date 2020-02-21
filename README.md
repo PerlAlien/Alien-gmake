@@ -39,7 +39,7 @@ Some packages insist on using GNU Make.  Some platforms refuse to come with GNU 
 Sometimes you just want to be able to build packages that require GNU Make without
 having to check the version of Make each time.  This module is for that.  It uses the
 system provided GNU Make if it can be found.  Otherwise it will download and install
-it into a directory not normally in your path so that it can be used when you 
+it into a directory not normally in your path so that it can be used when you
 `use Alien::gmake`.  This way you can use it when you need it, but not muck up your
 environment when you don't.
 
@@ -98,7 +98,7 @@ unshift @PATH, Alien::gmake->bin_dir;
 %{gmake}
 ```
 
-Returns either make or gmake depending on how GNU make is called on your 
+Returns either make or gmake depending on how GNU make is called on your
 system.
 
 # AUTHOR
