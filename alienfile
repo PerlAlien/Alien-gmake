@@ -27,7 +27,7 @@ if($^O eq 'MSWin32')
 share {
 
   plugin 'Download' => (
-    url     => 'http://ftp.gnu.org/gnu/make',
+    url     => 'https://ftp.gnu.org/gnu/make',
     version => qr/^make-([0-9\.]+)\.tar\.gz$/,
   );
 
