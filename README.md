@@ -4,6 +4,8 @@ Find or build GNU Make
 
 # SYNOPSIS
 
+From your Perl script:
+
 ```perl
 use Alien::gmake ();
 use Env qw( @PATH );
@@ -14,7 +16,19 @@ system $gmake, 'all';
 system $gmake, 'install';
 ```
 
-Or with [Alien::Build::ModuleBuild](https://metacpan.org/pod/Alien::Build::ModuleBuild):
+Or [alienfile](https://metacpan.org/pod/alienfile):
+
+```perl
+use alienfile;
+
+share {
+  ...
+  requires 'Alien::gmake' => '0.09';
+  build [ '%{gmake}', '%{gmake} install' ];
+};
+```
+
+Or Build.PL with [Alien::Build::ModuleBuild](https://metacpan.org/pod/Alien::Build::ModuleBuild):
 
 ```perl
 use Alien::Base::ModuleBuild;
