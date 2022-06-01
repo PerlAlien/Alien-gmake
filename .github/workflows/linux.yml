@@ -22,7 +22,7 @@ jobs:
           - env: ALIEN_INSTALL_TYPE=system
             tag: "5.37"
           - env: ALIEN_INSTALL_TYPE=share
-            tag: "5.34-fedora36"
+            tag: "5.36-fedora36"
           - env: ALIEN_INSTALL_TYPE=share
             tag: "5.36"
           - env: ALIEN_INSTALL_TYPE=system
