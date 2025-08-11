@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Experimental: use https://ftpmirror.gnu.org/make/ to find nearby mirror
+    instead of using https://ftp.gnu.org/gmu/make/ (gh#14, gh#15)
 
 0.24      2022-09-23 20:33:41 -0600
   - Re-released because 0.22 is missing from CPAN
